@@ -19,33 +19,68 @@
     </a>
   </header>
 
-  <section class="shop-header">
-    <h1 class="shop-title">SHOP</h1>
-  </section>
+  <div class="shop-container">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">CATEGORIES</h2>
+      <ul class="category-list">
+        <li><a href="#">Bodysuits</a></li>
+        <li class="active"><a href="#">Leggings</a></li>
+        <li><a href="#">Crop Tops</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+      <button class="btn-filter">APPLY FILTERS</button>
+    </aside>
 
-  <section class="products-grid">
-    <div class="product-card">
-      <img src="png/product1.png" alt="Product 1" class="product-image">
-      <div class="product-info">
-        <h3 class="product-name">Belle Bodysuits</h3>
-        <p class="product-price">$49.9</p>
+    <main class="shop-main">
+      <div class="shop-toolbar">
+        <span class="product-count">3 Products</span>
+        <select class="sort-select">
+          <option>BEST SELLING</option>
+          <option>PRICE: LOW TO HIGH</option>
+          <option>PRICE: HIGH TO LOW</option>
+        </select>
       </div>
-    </div>
-    <div class="product-card">
-      <img src="png/product2.png" alt="Product 2" class="product-image">
-      <div class="product-info">
-        <h3 class="product-name">Rainbow 2pc Legging & Crop Set</h3>
-        <p class="product-price">$49.9</p>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="png/product1.png" alt="Belle Bodysuits" class="product-image">
+            <span class="product-badge">Sale</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Belle Bodysuits</h3>
+            <p class="product-price">$49.9</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="png/product2.png" alt="Rainbow 2pc Legging & Crop Set" class="product-image">
+            <span class="product-badge">Sale</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Rainbow 2pc Legging & Crop Set</h3>
+            <p class="product-price">$49.9</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="png/product3.png" alt="Cali 2pc Leggings & Crop" class="product-image">
+            <span class="product-badge">Sale</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Cali 2pc Leggings & Crop</h3>
+            <p class="product-price">$49.9</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="product-card">
-      <img src="png/product3.png" alt="Product 3" class="product-image">
-      <div class="product-info">
-        <h3 class="product-name">Cali 2pc Leggings & Crop</h3>
-        <p class="product-price">$49.9</p>
-      </div>
-    </div>
-  </section>
+    </main>
+  </div>
 
 </body>
 </html>

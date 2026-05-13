@@ -19,5 +19,51 @@
     </a>
   </header>
 
+  <div class="policy-container">
+    
+    <div class="policy-tabs">
+      <button class="tab-btn active" onclick="openPolicy('shipping', this)">Shipping Policy</button>
+      <button class="tab-btn" onclick="openPolicy('refund', this)">Refund Policy</button>
+    </div>
+
+    <section id="shipping" class="policy-section">
+      <h1 class="policy-title">Shipping Policy</h1>
+      <p class="policy-text">Nimbu Active aims to deliver your order in 3 to 5 business days depending on seasonal demand. We use trusted delivery partners including Australia Post, TNT, DHL and other selected couriers depending on location and the size of your order.</p>
+      
+      <h2 class="policy-subtitle">Shipping Rates</h2>
+      
+      <h3 class="policy-heading">Australia</h3>
+      <p class="policy-text">Free standard delivery on everything!</p>
+      <ul class="policy-list">
+        <li><strong>Standard Delivery:</strong> FREE When you spend over $70 (4-7 Business Days)</li>
+        <li><strong>Standard Delivery:</strong> Only $8 When you spend under $70 (4-7 Business Days)</li>
+        <li><strong>Express Delivery:</strong> FREE When you spend over $150 or Only $12 for orders under $150 (2 - 4 business days)</li>
+      </ul>
+
+      <h3 class="policy-heading">Worldwide</h3>
+      <ul class="policy-list">
+        <li>$30 per order (up to 5kg)</li>
+      </ul>
+
+      <p class="policy-text policy-note">* Shipping time frames are average times orders are delivered to our customers. Please note certain factors out of our control my cause deliveries to take longer than expected.</p>
+      <ul class="policy-list policy-note">
+        <li>Travel / Lockdown Restrictions due to COVID-19</li>
+        <li>Seasonal and Public Holidays</li>
+        <li>Remote Locations</li>
+        <li>Industrial Strike</li>
+        <li>Other things out of our control</li>
+      </ul>
+    </section>
+
+    <section id="refund" class="policy-section" style="display: none;">
+      <h1 class="policy-title">Refund Policy</h1>
+      <p class="policy-text">We have a 7 day return policy for damaged or faulty items only, In the unlikely event an item arrives damaged or faulty, please submit a return request within 48hrs of receiving your order. You have 7 days after your return request has been approved to send the order back.</p>
+      <p class="policy-text">To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt (email) or proof of purchase.</p>
+      <p class="policy-text">To start a return, you can contact us by message If your return is accepted, we’ll send you a return instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.</p>
+    </section>
+
+  </div>
+
+  <script src="logic.js"></script>
 </body>
 </html>
