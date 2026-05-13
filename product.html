@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - NIMBU ACTIVE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="topbar-home">Home</a>
+    <a href="index.html" class="topbar-logo">
+      <img src="png/logo.png" alt="NIMBU ACTIVE">
+    </a>
+    <a href="cart.html" class="topbar-cart">
+      <img src="png/cart.png" alt="Cart">
+    </a>
+  </header>
+
+  <div class="product-page">
+    <div class="product-page-image">
+      <img id="productImage" src="" alt="Product Image">
+    </div>
+    <div class="product-page-details">
+      <h1 id="productName" class="product-page-title"></h1>
+      <p id="productPrice" class="product-page-price"></p>
+      <div class="product-rating">★★★★★</div>
+      <div class="product-options">
+        <div class="option-group">
+          <p class="option-label">Color</p>
+          <div class="color-options">
+            <span class="color-dot active" style="background-color: #000000;"></span>
+            <span class="color-dot" style="background-color: #7C3AED;"></span>
+            <span class="color-dot" style="background-color: #22C55E;"></span>
+          </div>
+        </div>
+        <div class="option-group">
+          <p class="option-label">Size</p>
+          <div class="size-options">
+            <span class="size-box">XS</span>
+            <span class="size-box">S</span>
+            <span class="size-box active">M</span>
+            <span class="size-box">L</span>
+            <span class="size-box">XL</span>
+          </div>
+        </div>
+      </div>
+      <button id="addToCartBtn" class="btn-add-to-cart">ADD TO CART</button>
+      <div class="product-intro">
+        <h3>INTRODUCTION</h3>
+        <p id="productIntro"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="logic.js"></script>
+</body>
+</html>

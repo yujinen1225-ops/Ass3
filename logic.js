@@ -1,3 +1,4 @@
+// About
 function openPolicy(policyId, btnElement) {
   var i;
   var x = document.getElementsByClassName("policy-section");
@@ -11,4 +12,116 @@ function openPolicy(policyId, btnElement) {
     tabBtns[i].classList.remove("active");
   }
   btnElement.classList.add("active");
+}
+
+// Product Detail
+var products = {
+  1: {
+    name: "Belle Bodysuits",
+    price: "$49.9",
+    image: "png/product1.png",
+    intro: "The Belle Bodysuit is designed for maximum comfort and style. Made with premium four-way stretch fabric, it moves with your body during any workout. Features a flattering scoop neckline and snap closure for easy wear."
+  },
+  2: {
+    name: "Rainbow 2pc Legging & Crop Set",
+    price: "$49.9",
+    image: "png/product2.png",
+    intro: "Stand out in the Rainbow 2pc Set. Featuring a vibrant color palette and sweat-wicking technology, this matching legging and crop top combo keeps you cool and confident through every rep and stretch."
+  },
+  3: {
+    name: "Cali 2pc Leggings & Crop",
+    price: "$49.9",
+    image: "png/product3.png",
+    intro: "The Cali Set brings effortless California vibes to your activewear rotation. With a high-waisted legging for core support and a breathable crop top, this set is perfect for yoga, Pilates, or casual streetwear."
+  }
+};
+
+function loadProduct() {
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get("id");
+
+  if (id && products[id]) {
+    var p = products[id];
+    document.getElementById("productImage").src = p.image;
+    document.getElementById("productName").textContent = p.name;
+    document.getElementById("productPrice").textContent = p.price;
+    document.getElementById("productIntro").textContent = p.intro;
+    document.title = p.name + " - NIMBU ACTIVE";
+  }
+}
+
+function setupOptionClicks() {
+  var colorDots = document.querySelectorAll(".color-dot");
+  colorDots.forEach(function(dot) {
+    dot.addEventListener("click", function() {
+      colorDots.forEach(function(d) { d.classList.remove("active"); });
+      dot.classList.add("active");
+    });
+  });
+
+  var sizeBoxes = document.querySelectorAll(".size-box");
+  sizeBoxes.forEach(function(box) {
+    box.addEventListener("click", function() {
+      sizeBoxes.forEach(function(b) { b.classList.remove("active"); });
+      box.classList.add("active");
+    });
+  });
+}
+
+function addToCart() {
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get("id");
+
+  if (id && products[id]) {
+    var p = products[id];
+    var selectedSize = document.querySelector(".size-box.active");
+    var size = selectedSize ? selectedSize.textContent : "M";
+
+    var cart = JSON.parse(localStorage.getItem("nimbuCart") || "[]");
+    cart.push({ id: id, name: p.name, price: p.price, size: size });
+    localStorage.setItem("nimbuCart", JSON.stringify(cart));
+
+    window.location.href = "cart.html";
+  }
+}
+
+// page
+window.onload = function() {
+  if (document.getElementById("productImage")) {
+    loadProduct();
+    setupOptionClicks();
+    document.getElementById("addToCartBtn").addEventListener("click", addToCart);
+  }
+
+  if (document.getElementById("cartItemsContainer")) {
+    loadCart();
+  }
+};
+
+// Cart 
+function loadCart() {
+  var cart = JSON.parse(localStorage.getItem("nimbuCart") || "[]");
+  var container = document.getElementById("cartItemsContainer");
+  var subtotalEl = document.getElementById("cartSubtotal");
+  var totalEl = document.getElementById("cartTotal");
+
+  if (cart.length === 0) {
+    return;
+  }
+
+  container.innerHTML = "";
+  var subtotal = 0;
+
+  cart.forEach(function(item, index) {
+    var priceNum = parseFloat(item.price.replace("$", ""));
+    subtotal += priceNum;
+
+    var itemDiv = document.createElement("div");
+    itemDiv.className = "cart-item";
+    itemDiv.innerHTML = '<div class="item-details"><h3 class="item-name">' + item.name + '</h3><p class="item-price">' + item.price + ' / Size: ' + item.size + '</p></div><div class="item-quantity">Qty: 1</div>';
+    container.appendChild(itemDiv);
+  });
+
+  subtotalEl.textContent = "$" + subtotal.toFixed(1);
+  totalEl.textContent = "$" + subtotal.toFixed(1);
 }

@@ -28,12 +28,13 @@
     <div class="cart-layout">
       <div class="cart-items-section">
         <h2 class="section-title">YOUR ITEMS</h2>
-        <div class="cart-item">
-          <div class="item-details">
-            <h3 class="item-name">Product 1</h3>
-            <p class="item-price">$00.00</p>
+        <div id="cartItemsContainer">
+          <div class="cart-item">
+            <div class="item-details">
+              <h3 class="item-name">No items yet</h3>
+              <p class="item-price">Go add something to your cart!</p>
+            </div>
           </div>
-          <div class="item-quantity">Qty: 1</div>
         </div>
       </div>
 
@@ -41,7 +42,7 @@
         <h2 class="section-title">ORDER DETAILS</h2>
         <div class="summary-row">
           <span>Subtotal</span>
-          <span>$00.00</span>
+          <span id="cartSubtotal">$0.0</span>
         </div>
         <div class="summary-row">
           <span>Shipping</span>
@@ -50,7 +51,7 @@
         <div class="summary-divider"></div>
         <div class="summary-row total-row">
           <span>Total</span>
-          <span>$00.00</span>
+          <span id="cartTotal">$0.0</span>
         </div>
       </div>
     </div>
@@ -63,5 +64,6 @@
     </div>
   </div>
 
+  <script src="logic.js"></script>
 </body>
 </html>
