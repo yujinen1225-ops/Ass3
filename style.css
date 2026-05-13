@@ -251,3 +251,55 @@ body {
 .btn-read-more:hover {
   background-color: #222222;
 }
+
+.shop-header {
+  padding: 60px 24px 20px;
+  text-align: center;
+}
+
+.shop-title {
+  font-weight: 800;
+  color: #000000;
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: -0.04em;
+}
+
+.products-grid {
+  padding: 40px 24px 80px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 30%;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.product-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.product-price {
+  font-weight: 400;
+  font-size: 14px;
+  color: #555555;
+}
