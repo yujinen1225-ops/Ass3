@@ -1,4 +1,4 @@
-// About
+// Policy
 function openPolicy(policyId, btnElement) {
   var i;
   var x = document.getElementsByClassName("policy-section");
@@ -14,7 +14,7 @@ function openPolicy(policyId, btnElement) {
   btnElement.classList.add("active");
 }
 
-// Product Detail
+// Product
 var products = {
   1: {
     name: "Belle Bodysuits",
@@ -85,7 +85,19 @@ function addToCart() {
   }
 }
 
-// page
+// Toggle
+function toggleSidebar() {
+  var sidebar = document.getElementById("shopSidebar");
+  var btn = document.getElementById("toggleBtn");
+  sidebar.classList.toggle("collapsed");
+  if (sidebar.classList.contains("collapsed")) {
+    btn.textContent = "→";
+  } else {
+    btn.textContent = "←";
+  }
+}
+
+// Initialize
 window.onload = function() {
   if (document.getElementById("productImage")) {
     loadProduct();
@@ -98,7 +110,7 @@ window.onload = function() {
   }
 };
 
-// Cart 
+// Cart
 function loadCart() {
   var cart = JSON.parse(localStorage.getItem("nimbuCart") || "[]");
   var container = document.getElementById("cartItemsContainer");
@@ -106,6 +118,9 @@ function loadCart() {
   var totalEl = document.getElementById("cartTotal");
 
   if (cart.length === 0) {
+    container.innerHTML = '<div class="cart-item"><div class="item-details"><h3 class="item-name">No items yet</h3><p class="item-price">Go add something to your cart!</p></div></div>';
+    subtotalEl.textContent = "$0.0";
+    totalEl.textContent = "$0.0";
     return;
   }
 

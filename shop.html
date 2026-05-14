@@ -20,17 +20,21 @@
   </header>
 
   <div class="shop-container">
-    <aside class="sidebar">
-      <h2 class="sidebar-title">CATEGORIES</h2>
-      <ul class="category-list">
-        <li><a href="#">Bodysuits</a></li>
-        <li class="active"><a href="#">Leggings</a></li>
-        <li><a href="#">Crop Tops</a></li>
-        <li><a href="#">Sets</a></li>
-        <li><a href="#">Accessories</a></li>
-      </ul>
-      <button class="btn-filter">APPLY FILTERS</button>
-    </aside>
+    
+    <div class="sidebar-wrapper">
+      <aside class="sidebar" id="shopSidebar">
+        <h2 class="sidebar-title">CATEGORIES</h2>
+        <ul class="category-list">
+          <li><a href="#">Bodysuits</a></li>
+          <li class="active"><a href="#">Leggings</a></li>
+          <li><a href="#">Crop Tops</a></li>
+          <li><a href="#">Sets</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+        <button class="btn-filter">APPLY FILTERS</button>
+      </aside>
+      <button class="toggle-sidebar-btn" id="toggleBtn" onclick="toggleSidebar()">←</button>
+    </div>
 
     <main class="shop-main">
       <div class="shop-toolbar">
