@@ -78,9 +78,21 @@ function addToCart() {
     var size = selectedSize ? selectedSize.textContent : "M";
 
     var cart = JSON.parse(localStorage.getItem("nimbuCart") || "[]");
-    cart.push({ id: id, name: p.name, price: p.price, size: size });
-    localStorage.setItem("nimbuCart", JSON.stringify(cart));
 
+    var found = false;
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].id === id && cart[i].size === size) {
+        cart[i].qty += 1;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      cart.push({ id: id, name: p.name, price: p.price, size: size, qty: 1 });
+    }
+
+    localStorage.setItem("nimbuCart", JSON.stringify(cart));
     window.location.href = "cart.html";
   }
 }
@@ -129,14 +141,46 @@ function loadCart() {
 
   cart.forEach(function(item, index) {
     var priceNum = parseFloat(item.price.replace("$", ""));
-    subtotal += priceNum;
+    var qty = item.qty || 1;
+    var lineTotal = priceNum * qty;
+    subtotal += lineTotal;
 
     var itemDiv = document.createElement("div");
     itemDiv.className = "cart-item";
-    itemDiv.innerHTML = '<div class="item-details"><h3 class="item-name">' + item.name + '</h3><p class="item-price">' + item.price + ' / Size: ' + item.size + '</p></div><div class="item-quantity">Qty: 1</div>';
+    itemDiv.innerHTML = '<div class="item-details"><h3 class="item-name">' + item.name + '</h3><p class="item-price">' + item.price + ' / Size: ' + item.size + '</p></div><div class="quantity-control"><button class="qty-btn" onclick="changeQty(' + index + ', -1)">-</button><input type="number" class="qty-input" value="' + qty + '" min="1" onchange="setQty(' + index + ', this.value)"><button class="qty-btn" onclick="changeQty(' + index + ', 1)">+</button></div>';
     container.appendChild(itemDiv);
   });
 
   subtotalEl.textContent = "$" + subtotal.toFixed(1);
   totalEl.textContent = "$" + subtotal.toFixed(1);
+}
+
+function changeQty(index, delta) {
+  var cart = JSON.parse(localStorage.getItem("nimbuCart") || "[]");
+  if (!cart[index]) return;
+
+  cart[index].qty = (cart[index].qty || 1) + delta;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem("nimbuCart", JSON.stringify(cart));
+  loadCart();
+}
+
+function setQty(index, value) {
+  var cart = JSON.parse(localStorage.getItem("nimbuCart") || "[]");
+  if (!cart[index]) return;
+
+  var newQty = parseInt(value);
+
+  if (isNaN(newQty) || newQty <= 0) {
+    cart.splice(index, 1);
+  } else {
+    cart[index].qty = newQty;
+  }
+
+  localStorage.setItem("nimbuCart", JSON.stringify(cart));
+  loadCart();
 }

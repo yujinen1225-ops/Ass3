@@ -252,7 +252,6 @@ body {
   background-color: #222222;
 }
 
-/* Shop Page Styles */
 .shop-container {
   display: flex;
   padding: 40px 24px;
@@ -468,7 +467,6 @@ body {
   font-weight: 700;
 }
 
-/* About / Policy Page Styles */
 .policy-container {
   max-width: 800px;
   margin: 0 auto;
@@ -569,7 +567,6 @@ body {
   font-style: italic;
 }
 
-/* Cart Page Styles */
 .cart-container {
   max-width: 900px;
   margin: 0 auto;
@@ -659,6 +656,56 @@ body {
   font-weight: 700;
 }
 
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.qty-btn:hover {
+  background-color: #222222;
+}
+
+.qty-input {
+  width: 40px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.2);
+  background-color: #ffffff;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000000;
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.qty-input::-webkit-inner-spin-button,
+.qty-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty-input:focus {
+  border-color: #000000;
+}
+
 .summary-row {
   display: flex;
   justify-content: space-between;
@@ -708,7 +755,6 @@ body {
   border-radius: 3px;
 }
 
-/* Product Detail Page Styles */
 .product-page {
   display: flex;
   max-width: 1100px;
@@ -880,7 +926,6 @@ body {
   background-color: #00d636;
 }
 
-/* Best Selling Section */
 .best-selling-section {
   padding: 80px 24px;
   max-width: 1200px;
