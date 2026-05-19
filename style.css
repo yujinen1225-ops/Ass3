@@ -855,7 +855,6 @@ body {
   color: #555555;
 }
 
-/* Continue Shopping Button */
 .continue-shopping-wrapper {
   text-align: center;
   margin-top: 40px;
@@ -879,4 +878,26 @@ body {
 
 .btn-continue-shopping:hover {
   background-color: #00d636;
+}
+
+/* Best Selling Section */
+.best-selling-section {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: #000000;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.best-selling-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
