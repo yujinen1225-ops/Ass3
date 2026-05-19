@@ -128,22 +128,26 @@ function loadCart() {
   var container = document.getElementById("cartItemsContainer");
   var subtotalEl = document.getElementById("cartSubtotal");
   var totalEl = document.getElementById("cartTotal");
+  var checkoutBtn = document.getElementById("checkoutBtn");
 
   if (cart.length === 0) {
     container.innerHTML = '<div class="cart-item"><div class="item-details"><h3 class="item-name">No items yet</h3><p class="item-price">Go add something to your cart!</p></div></div>';
     subtotalEl.textContent = "$0.0";
     totalEl.textContent = "$0.0";
+    if (checkoutBtn) checkoutBtn.style.display = "none";
     return;
   }
 
   container.innerHTML = "";
   var subtotal = 0;
+  var totalQty = 0;
 
   cart.forEach(function(item, index) {
     var priceNum = parseFloat(item.price.replace("$", ""));
     var qty = item.qty || 1;
     var lineTotal = priceNum * qty;
     subtotal += lineTotal;
+    totalQty += qty;
 
     var itemDiv = document.createElement("div");
     itemDiv.className = "cart-item";
@@ -153,6 +157,10 @@ function loadCart() {
 
   subtotalEl.textContent = "$" + subtotal.toFixed(1);
   totalEl.textContent = "$" + subtotal.toFixed(1);
+
+  if (checkoutBtn) {
+    checkoutBtn.style.display = totalQty >= 1 ? "inline-block" : "none";
+  }
 }
 
 function changeQty(index, delta) {
